@@ -2,6 +2,7 @@ package com.example.springboot.Controllers;
 
 import com.example.springboot.Services.HelloWorldService;
 import com.example.springboot.models.Employee;
+import com.example.springboot.models.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,23 +14,23 @@ public class HelloworldController {
     @Autowired
     private HelloWorldService hws;
 
-    @GetMapping("/{empid}")
-    public Employee getEmployeeById(@PathVariable int empid) {
-        return hws.getEmployeeById(empid);
+    @GetMapping("/get")
+    public List<Student> getMethod() {
+        return hws.helloWorld();
     }
 
     @PostMapping("/post")
-    public String postMethod(@RequestBody Employee Emp) {
-        return hws.post(Emp);
+    public String postMethod(@RequestBody Student student) {
+        return hws.post(student);
     }
 
     @PutMapping("/put")
-    public String putMethod(@RequestBody Employee Emp) {
-        return hws.updateRecord(Emp);
+    public String putMethod() {
+        return hws.put();
     }
 
-    @DeleteMapping("/{empid}")
-    public String deleteMethod(@PathVariable int empid) {
-        return hws.deleteEmployeeById(empid);
+    @DeleteMapping("/del")
+    public String deleteMethod() {
+        return hws.delete();
     }
 }
