@@ -11,7 +11,7 @@ import java.util.List;
 //@Controller
 //@ResponseBody
 @RestController
-public class HelloworldController {
+public class HelloWorldController {
     @Autowired
     private HelloWorldService hws;
 
