@@ -8,29 +8,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@Controller
+//@ResponseBody
 @RestController
 public class HelloworldController {
-
     @Autowired
     private HelloWorldService hws;
 
-    @GetMapping("/get")
-    public List<Student> getMethod() {
-        return hws.helloWorld();
+    @GetMapping("/hello")
+    public List<Employee> hello(){
+        return hws.getEmp();
     }
 
-    @PostMapping("/post")
-    public String postMethod(@RequestBody Student student) {
-        return hws.post(student);
+    //post method
+    @PostMapping("/hello")
+    public String postmethod(){
+        return hws.postmethod();
     }
 
-    @PutMapping("/put")
-    public String putMethod() {
-        return hws.put();
+    @PutMapping("/hello")
+    public String putmethod(){
+        return hws.putmethod();
     }
 
-    @DeleteMapping("/del")
-    public String deleteMethod() {
-        return hws.delete();
+    @DeleteMapping("/hello")
+    public String deletemethod(){
+        return hws.deletemethod();
     }
 }
